@@ -7,7 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GooglePhotosTecnoin
+namespace GooglePhotosAPI
 {
     public class GooglePhotos : IDisposable, IGooglePhotos
     {
@@ -100,6 +100,27 @@ namespace GooglePhotosTecnoin
                 return await CreateMediaItem(albumId, "test", uploadToken).ConfigureAwait(false);
             }
 
+        }
+
+
+        public async Task DeleteMediaItem(string albumId, string mediaItemId)
+        {
+            Uri url = new Uri($"https://photoslibrary.googleapis.com/v1/albums/{albumId}:batchRemoveMediaItems");
+
+            // name of the album = codice fiscale, nome , cognome
+            string jsonData = $@"{{ ""mediaItemIds"" : [ ""{mediaItemId}"" ] }}";
+
+            var contentToSend = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await _httpClient.PostAsync(url, contentToSend).ConfigureAwait(false);
+            contentToSend.Dispose();
+            try {
+                response.EnsureSuccessStatusCode();
+                var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                dynamic notifications = JObject.Parse(content);
+
+            } catch (HttpRequestException e) {
+                Console.WriteLine(e);
+            }
         }
 
 
