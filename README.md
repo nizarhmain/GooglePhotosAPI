@@ -6,10 +6,6 @@
 <img height="200px" src="https://www.farewebnews.it/images/google-foto-final.jpg">
 </p>
 
-<p align="center"> 
-<img width="95px" src="https://www.tecnoin.eu/images/logo/logo_orizzontale.png"
-</p>
-
 ## Getting started 
 
 ### Get an instance 
