@@ -19,7 +19,7 @@ namespace GooglePhotosAPITest
 
             // needs to have at least one mediaItem passed In
 
-            Uri testUrl = new Uri($"https://photoslibrary.googleapis.com/v1/mediaItems:batchGet?mediaItemsIds=981729edc876987&mediaItemsIds=1972839817dajcxvgsk&mediaItemsIds=129387dghsajkgh");
+            Uri testUrl = new Uri($"https://photoslibrary.googleapis.com/v1/mediaItems:batchGet?mediaItemIds=981729edc876987&mediaItemIds=1972839817dajcxvgsk&mediaItemIds=129387dghsajkgh");
 
             Assert.Equal(testUrl, generatedUrl);
         }

@@ -46,12 +46,12 @@ namespace GooglePhotosAPI
             }
 
             // for string append it to the url to get the full batch, maximum 50
-            UriBuilder baseUri = new UriBuilder($"https://photoslibrary.googleapis.com/v1/mediaItems:batchGet?mediaItemsIds={mediaItems.First()}");
+            UriBuilder baseUri = new UriBuilder($"https://photoslibrary.googleapis.com/v1/mediaItems:batchGet?mediaItemIds={mediaItems.First()}");
 
             foreach (string queryToAppend in mediaItems.Skip(1)) {
 
                 if (baseUri.Query != null && baseUri.Query.Length > 1)
-                    baseUri.Query = baseUri.Query.Substring(1) + "&mediaItemsIds=" + queryToAppend;
+                    baseUri.Query = baseUri.Query.Substring(1) + "&mediaItemIds=" + queryToAppend;
                 else
                     baseUri.Query = queryToAppend;
             }
