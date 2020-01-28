@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GooglePhotosAPI", "GooglePhotosAPI.csproj", "{1B1572ED-1306-4D68-A464-C1CF5FD4870E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GooglePhotosAPI", "main\GooglePhotosAPI.csproj", "{E8FE9B21-A83D-4B99-A549-650D3531E3E2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GooglePhotosAPITest", "tests\GooglePhotosAPITest.csproj", "{102A767D-4DAC-42E1-86C2-22F9EF1D7CF8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BC4A51EC-AB83-4768-BAA8-98E7156EE92B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +18,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1B1572ED-1306-4D68-A464-C1CF5FD4870E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1B1572ED-1306-4D68-A464-C1CF5FD4870E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1B1572ED-1306-4D68-A464-C1CF5FD4870E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1B1572ED-1306-4D68-A464-C1CF5FD4870E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8FE9B21-A83D-4B99-A549-650D3531E3E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8FE9B21-A83D-4B99-A549-650D3531E3E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8FE9B21-A83D-4B99-A549-650D3531E3E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8FE9B21-A83D-4B99-A549-650D3531E3E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{102A767D-4DAC-42E1-86C2-22F9EF1D7CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{102A767D-4DAC-42E1-86C2-22F9EF1D7CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{102A767D-4DAC-42E1-86C2-22F9EF1D7CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{102A767D-4DAC-42E1-86C2-22F9EF1D7CF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3790FBEF-8EEA-43E0-A1A5-B6D37E0D0A69}
+		SolutionGuid = {DC6DA61E-2073-4232-A8DD-BEB1639AFF12}
 	EndGlobalSection
 EndGlobal

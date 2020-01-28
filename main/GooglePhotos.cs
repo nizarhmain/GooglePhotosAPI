@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using GooglePhotosAPI.Exceptions;
+using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -33,6 +36,43 @@ namespace GooglePhotosAPI
 
             return responseObject;
         }
+
+
+        public static Uri GenerateMediaItemsString(List<string> mediaItems)
+        {
+
+            if (mediaItems != null && mediaItems.Count >= 50) {
+                throw new BatchTooLongException();
+            }
+
+            // for string append it to the url to get the full batch, maximum 50
+            UriBuilder baseUri = new UriBuilder($"https://photoslibrary.googleapis.com/v1/mediaItems:batchGet?mediaItemsIds={mediaItems.First()}");
+
+            foreach (string queryToAppend in mediaItems.Skip(1)) {
+
+                if (baseUri.Query != null && baseUri.Query.Length > 1)
+                    baseUri.Query = baseUri.Query.Substring(1) + "&mediaItemsIds=" + queryToAppend;
+                else
+                    baseUri.Query = queryToAppend;
+            }
+
+            return baseUri.Uri;
+        }
+
+
+        public async Task<dynamic> GetBatchMediaItem(List<string> mediaItems)
+        {
+
+            // for string append it to the url to get the full batch, maximum 50
+            Uri url = GenerateMediaItemsString(mediaItems);
+
+            HttpResponseMessage response = await _httpClient.GetAsync(url).ConfigureAwait(false);
+            string responseString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            dynamic responseObject = JObject.Parse(responseString);
+
+            return responseObject;
+        }
+
 
         public async Task<string> CreateNewAlbum(string albumName)
         {
