@@ -68,9 +68,7 @@ namespace GooglePhotosAPI
 
             HttpResponseMessage response = await _httpClient.GetAsync(url).ConfigureAwait(false);
             string responseString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-            dynamic responseObject = JObject.Parse(responseString);
-
-            return responseObject;
+            return responseString;
         }
 
 
@@ -98,7 +96,7 @@ namespace GooglePhotosAPI
         }
 
 
-        public async Task<string> UploadMedia(IFormFile png, string albumId)
+        public async Task<string> UploadMedia(IFormFile png, string albumId, string filename)
         {
 
             if (png == null) {
@@ -137,7 +135,7 @@ namespace GooglePhotosAPI
 
             using (var reader = new System.IO.StreamReader(response.GetResponseStream())) {
                 string uploadToken = reader.ReadToEnd();
-                return await CreateMediaItem(albumId, "test", uploadToken).ConfigureAwait(false);
+                return await CreateMediaItem(albumId, filename, uploadToken).ConfigureAwait(false);
             }
 
         }

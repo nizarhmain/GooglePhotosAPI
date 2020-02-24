@@ -12,6 +12,6 @@ namespace GooglePhotosAPI
         Task<dynamic> GetBatchMediaItem(List<string> mediaItems);
         System.Threading.Tasks.Task<dynamic> GetMediaItem(string mediaItemId);
         void SetAuthorizationBearer(string accessToken);
-        Task<string> UploadMedia(IFormFile png, string albumId);
+        Task<string> UploadMedia(IFormFile png, string albumId, string filename);
     }
 }
